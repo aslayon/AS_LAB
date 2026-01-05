@@ -1,5 +1,5 @@
 flowchart TD
-    A[Object 입력: scanf('%lld', &Num_tmp2)] --> B{scanf 반환값 == 1?}
+    A["Object 입력: scanf('%lld', &Num_tmp2)"] --> B{scanf 반환값 == 1?}
     B -- 아니오(타입 에러) --> C[오류 메시지]
     C --> D[버퍼 비우기]
     D --> E[메뉴로 복귀]
