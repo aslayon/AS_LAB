@@ -1,0 +1,11 @@
+Debug/
+Release/
+*.obj
+*.pch
+*.pdb
+*.ilk
+*.tlog
+*.log
+*.res
+*.exe
+*.manifest
