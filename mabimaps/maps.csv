@@ -1,0 +1,9 @@
+"id","img_path","bounds","view_config","parent_id","zones","area_for_markers"
+"belfast","/static/maps/belfast.png","[[0, 0], [800, 1000]]","null","world",NULL,NULL
+"dunbarton","/static/maps/dunbarton.jpg","[[0, 0], [500, 500]]","{""zoom"": 1, ""center"": [250, 250]}","uladh","null","dunbarton"
+"Taillteann","/static/maps/Taillteann.jpg","[[0, 0], [800, 800]]","null","uladh",NULL,NULL
+"tir_chonaill","/static/maps/tir_chonaill.jpg","[[0, 0], [800, 600]]","null","uladh","null","tir_chonaill"
+"uladh","/static/maps/uladh.png","[[0, 0], [800, 800]]","null","world","[{""bounds"": [[450, 540], [360, 610]], ""target"": ""dunbarton""}, {""bounds"": [[642.97, 569], [698.97, 658]], ""target"": ""tir_chonaill""}, {""bounds"": [[528.8130147932632, 232.10525820252536], [669.8881285087899, 391.1365991279963]], ""target"": ""Taillteann""}, {""bounds"": [[678.8774740810557, 69.11176292290611], [735.9078392000984, 158.12930595666035]], ""target"": ""임시구역""}, {""bounds"": [[593.8487071261729, 56.13482511334712], [643.8753431955088, 131.1496085687579]], ""target"": ""임시구역2""}]","uladh"
+"world","/static/maps/world.png","[[0, 0], [800, 1000]]","null",NULL,"[{""bounds"": [[513, 3], [9, 270]], ""target"": ""uladh""}, {""bounds"": [[149.4608859566447, 305.7501833795691], [211.49391468262093, 415.70312887914565]], ""target"": ""belfast""}]",NULL
+"임시구역","/static/maps/임시구역.jpg","[[0, 0], [800, 800]]","null","uladh",NULL,NULL
+"임시구역2","/static/maps/임시구역2.jpg","[[0, 0], [800, 800]]","null","uladh",NULL,"uladh"

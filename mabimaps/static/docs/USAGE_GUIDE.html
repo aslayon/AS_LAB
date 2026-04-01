@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mabinogi Shop Map — 이용 가이드</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <style>
+        body {
+            background: #0f0f12;
+            color: #eee;
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        }
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 24px 16px 80px;
+        }
+        .card {
+            background: rgba(22, 22, 26, 0.95);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 14px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+            padding: 18px 16px;
+        }
+        a { color: #9ecbff; }
+        h1, h2, h3 { margin: 18px 0 10px; }
+        h1 { font-size: 22px; }
+        h2 { font-size: 18px; border-top: 1px solid rgba(255,255,255,0.10); padding-top: 14px; }
+        h3 { font-size: 15px; }
+        p, li { line-height: 1.6; }
+        code { background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 6px; }
+        pre { background: rgba(255,255,255,0.08); padding: 12px; border-radius: 10px; overflow:auto; }
+        .topbar {
+            display:flex;
+            gap: 10px;
+            align-items:center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+        .btn {
+            display:inline-block;
+            padding: 8px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.16);
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .muted { color: #b8b8c7; font-size: 13px; }
+        .toc a { text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+        .img-note { color:#b8b8c7; font-size: 13px; margin-top: 6px; }
+        .footer {
+            margin-top: 22px;
+            color: #a9a9bb;
+            font-size: 12px;
+        }
+        .badge {
+            display:inline-block;
+            padding: 2px 8px;
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 999px;
+            font-size: 12px;
+            color: #ddd;
+            background: rgba(255,255,255,0.05);
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div>
+                <a class="btn" href="/" title="지도 화면으로 돌아가기">← 지도</a>
+                <span class="badge">Guide</span>
+            </div>
+            <div class="muted">Mabinogi Shop Map 이용 가이드</div>
+        </div>
+
+        <div class="card">
+            <h1>Mabinogi Shop Map — 이용 가이드</h1>
+            <p class="muted">
+                이 페이지는 <code>docs/USAGE_GUIDE.md</code> 내용을 웹에서 보기 편하게 옮겨둔 버전입니다.<br />
+                스크린샷/이미지는 필요하면 <code>docs/assets/</code>에 추가한 뒤, 아래 안내에 맞춰 링크를 수정해서 사용하세요.
+            </p>
+
+            <hr style="border:0;border-top:1px solid rgba(255,255,255,0.10);margin:16px 0;" />
+
+            <h2 id="toc">목차</h2>
+            <ul class="toc">
+                <li><a href="#1">1. 사이트 소개</a></li>
+                <li><a href="#2">2. 기본 사용법(지도 탐색)</a></li>
+                <li><a href="#3">3. 검색 기능(NPC / 아이템)</a></li>
+                <li><a href="#4">4. 필터 기능(전체/NPC/몬스터/이벤트/오브젝트)</a></li>
+                <li><a href="#5">5. 마커 팝업(아이템 목록/신고)</a></li>
+                <li><a href="#6">6. 데이터 제보 기능</a>
+                    <ul>
+                        <li><a href="#6-1">6.1 신규 마커 추가</a></li>
+                        <li><a href="#6-2">6.2 맵 이동 영역 추가</a></li>
+                        <li><a href="#6-3">6.3 아이템 등록</a></li>
+                        <li><a href="#6-4">6.4 아이템 이미지 수정</a></li>
+                        <li><a href="#6-5">6.5 특정 위치에 아이템 정보 제보</a></li>
+                        <li><a href="#6-6">6.6 잘못된 아이템 정보 신고(🚨)</a></li>
+                        <li><a href="#6-7">6.7 마커 신고(🚨) 및 자동 숨김</a></li>
+                    </ul>
+                </li>
+                <li><a href="#7">7. 마커 위치 수정(편집 모드)</a></li>
+                <li><a href="#8">8. 자주 묻는 질문(FAQ)</a></li>
+                <li><a href="#9">9. 운영/개발자용: 실행 방법 & 환경설정</a></li>
+                <li><a href="#10">10. 문제 해결(트러블슈팅)</a></li>
+                <li><a href="#changelog">변경 이력</a></li>
+            </ul>
+
+            <h2 id="1">1. 사이트 소개</h2>
+            <ul>
+                <li>지도에 표시된 <b>마커</b>(NPC/몬스터/이벤트/오브젝트 등) 확인</li>
+                <li><b>NPC / 아이템 검색</b></li>
+                <li>마커 클릭 시 <b>판매/획득 아이템 목록</b> 확인</li>
+                <li>사용자 참여형 <b>데이터 제보</b>
+                    <ul>
+                        <li>신규 마커 추가</li>
+                        <li>맵 이동 영역 추가(맵 간 이동 존)</li>
+                        <li>아이템 마스터 등록(아이템 이름/이미지)</li>
+                        <li>아이템 이미지 수정</li>
+                        <li>특정 위치(마커)에 아이템 정보 제보</li>
+                        <li>잘못된 아이템 정보 신고(🚨)</li>
+                        <li>마커 신고(🚨) 및 5회 누적 자동 숨김</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <img src="/static/docs/assets/1.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+
+            <h2 id="2">2. 기본 사용법(지도 탐색)</h2>
+            <ol>
+                <li>사이트에 접속하면 지도 화면이 표시됩니다.</li>
+                <li>지도는 마우스/터치로 이동 및 확대/축소가 가능합니다.</li>
+                <li>마커를 클릭하면 상세 팝업이 열립니다.</li>
+                <img src="/static/docs/assets/2.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+
+            </ol>
+
+            <h2 id="3">3. 검색 기능(NPC / 아이템)</h2>
+            <ul>
+                <li>좌측 상단 검색창: <code>NPC / 아이템 검색</code></li>
+                <li>입력 시 검색 결과가 리스트로 표시됩니다.</li>
+                <li>결과 클릭 시 해당 위치(마커)로 포커싱됩니다.</li>
+                <img src="/static/docs/assets/3.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+                <img src="/static/docs/assets/4.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+            </ul>
+            <p class="muted">
+                결과 메타: <code>result_type</code> (marker/item), <code>area_id</code> (없으면 “위치 미상”)
+            </p>
+
+            <h2 id="4">4. 필터 기능(전체/NPC/몬스터/이벤트/오브젝트)</h2>
+            <ul>
+                <li>하단(또는 우측 하단)의 <b>필터 버튼(⚙️)</b>으로 카테고리 필터링</li>
+                <li>전체 / NPC / 몬스터 / 이벤트 / 오브젝트</li>
+                <img src="/static/docs/assets/5.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+            </ul>
+
+            <h2 id="5">5. 마커 팝업(아이템 목록/신고)</h2>
+            <p>NPC 마커를 클릭하면:</p>
+            <ul>
+                <li>NPC 이름 / 이미지 / 설명</li>
+                <li><b>판매/획득 아이템 리스트</b>(아이템 이미지, 가격, 조건 등)</li>
+                <img src="/static/docs/assets/6.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+            </ul>
+            <p>추가로 팝업에서:</p>
+            <ul>
+                <li>우측 상단 버튼(🚨/이미지)로 <b>마커 신고</b> 및 <b>마커 이미지 재업로드</b></li>
+                <li>하단의 <b>“이 위치에 정보 제보”</b>로 아이템 정보 제보</li>
+                <img src="/static/docs/assets/7.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+            </ul>
+
+            <h2 id="6">6. 데이터 제보 기능</h2>
+            <p>우측 상단의 <b>“데이터 제보”</b> 버튼을 누르면 메뉴가 열립니다.</p>
+
+            <h3 id="6-1">6.1 신규 마커 추가</h3>
+            <ol>
+                <li><code>데이터 제보 → 신규 마커 추가</code> 선택</li>
+                <li>원하는 위치 클릭</li>
+                <li>이름/카테고리(필수), 설명/이미지(선택) 입력</li>
+                <li><b>제보하기</b> 클릭</li>
+                <img src="/static/docs/assets/9.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+            </ol>
+
+            <h3 id="6-2">6.2 맵 이동 영역 추가</h3>
+            <ol>
+                <li><code>데이터 제보 → 맵 이동 영역 추가</code> 선택</li>
+                <li>맵에서 이동 영역(bounds) 지정</li>
+                <li>이동할 맵 ID / 새로운 맵 이미지(선택) 입력</li>
+            </ol>
+            <ul>
+                <li>새로운 맵을 추가하려는 경우 보통 “새로운 맵 이미지” 업로드가 필요합니다.</li>
+                <li>서버는 이동 대상 맵(target)의 존재를 검사할 수 있습니다.</li>
+                <img src="/static/docs/assets/10.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+            </ul>
+
+            <h3 id="6-3">6.3 아이템 마스터 등록</h3>
+            <ol>
+                <li><code>데이터 제보 → 아이템 마스터 등록</code> 선택</li>
+                <li>아이템 이름 입력(필수)</li>
+                <li>이미지 업로드(선택)</li>
+                <li><b>신규 등록</b> 클릭</li>
+                <img src="/static/docs/assets/11.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+            </ol>
+
+            <h3 id="6-4">6.4 아이템 이미지 수정</h3>
+            <p><code>데이터 제보 → 아이템 이미지 수정</code> 메뉴에서, 아이템 이름으로 기존 아이템의 이미지를 업데이트할 수 있습니다.</p>
+            <ol>
+                <li><code>데이터 제보 → 아이템 이미지 수정</code> 선택</li>
+                <li>아이템 이름 입력(자동완성에서 정확한 이름 선택 권장)</li>
+                <li>“선택된 아이템: … (ID: …)” 바인딩 상태 확인</li>
+                <li>새 이미지 파일 선택</li>
+                <li><b>이미지 업데이트</b> 클릭</li>
+                <img src="/static/docs/assets/11.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+            </ol>
+
+            <h3 id="6-5">6.5 특정 위치에 아이템 정보 제보</h3>
+            <p>NPC(또는 마커) 팝업에서 <b>“이 위치에 정보 제보”</b> 버튼으로 제보합니다.</p>
+            <ul>
+                <li>아이템 이름(필수, 자동완성)</li>
+                <li>획득 방식: 상점/채집/드랍/기타</li>
+                <li>가격(선택): 가격 + 단위</li>
+                <li>추가 조건(선택)</li>
+                <li>이미지(선택)</li>
+                <img src="/static/docs/assets/12.png" alt="가이드 이미지" style="max-width:100%;height:auto;border-radius:12px;display:block;margin-top:10px;">
+            </ul>
+
+            <h3 id="6-6">6.6 잘못된 아이템 정보 신고(🚨)</h3>
+            <p>마커 팝업의 아이템 리스트에서 🚨 버튼으로 아이템 소스를 신고할 수 있습니다.</p>
+            <ul>
+                <li>신고 접수 후 화면에서 해당 항목이 제거될 수 있습니다.</li>
+                <li>누적 신고가 일정 기준을 넘으면 목록에서 노출되지 않을 수 있습니다.</li>
+            </ul>
+
+            <h3 id="6-7">6.7 마커 신고(🚨) 및 자동 숨김</h3>
+            <p>마커 팝업 우측 상단의 🚨 버튼으로 마커 자체를 신고할 수 있습니다.</p>
+            <ul>
+                <li>신고가 누적 <b>5회 이상</b>이면 해당 마커는:
+                    <ul>
+                        <li>지도 마커 목록(<code>/markers</code>)에서 제외</li>
+                        <li>검색 결과(<code>/search</code>)에서 제외</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2 id="7">7. 마커 위치 수정(편집 모드)</h2>
+            <ul>
+                <li><code>데이터 제보 → 마커 위치 수정</code> 선택 시 편집 모드 활성화</li>
+                <li>마커를 드래그하여 위치 수정</li>
+                <li>편집 모드 켜면 기존 제보 모드는 해제됨</li>
+            </ul>
+
+            <h2 id="8">8. 자주 묻는 질문(FAQ)</h2>
+            <h3>Q1. 이미지가 깨져요 / 안 보여요</h3>
+            <ul>
+                <li>기본적으로 이미지가 없으면 기본 이미지로 대체됩니다.</li>
+                <li>업로드한 파일 확장자/경로가 올바른지 확인하세요.</li>
+            </ul>
+
+            <h3>Q2. 검색 결과가 안 나와요</h3>
+            <ul>
+                <li>공백만 입력하면 검색되지 않습니다.</li>
+                <li>서버가 꺼져있거나 DB 연결이 안 된 경우 검색이 실패할 수 있습니다.</li>
+            </ul>
+
+            <h3>Q3. “제보하기”를 눌렀는데 반응이 없어요</h3>
+            <ul>
+                <li>브라우저 콘솔(F12)에 에러가 있는지 확인하세요.</li>
+                <li>네트워크 탭에서 요청이 실패했는지 확인하세요.</li>
+            </ul>
+
+            <h2 id="9">9. 운영/개발자용: 실행 방법 & 환경설정</h2>
+            <h3>9.1 요구사항</h3>
+            <ul>
+                <li>Python (권장: 3.10+)</li>
+                <li>PostgreSQL(+ PostGIS 사용 가능 환경 권장)</li>
+                <li><code>requirements.txt</code> 설치</li>
+            </ul>
+
+            <h3>9.2 환경 변수(.env)</h3>
+            <p><code>.env.example</code>을 참고해서 <code>.env</code>를 구성합니다.</p>
+            <ul>
+                <li><code>CORS_ALLOW_ORIGINS</code>: 외부 프론트 분리 호스팅 시 허용 origin을 콤마로 설정</li>
+            </ul>
+
+            <h3>9.3 실행</h3>
+            <pre><code>pip install -r requirements.txt
+python run.py</code></pre>
+            <p class="muted">또는 개발용:</p>
+            <pre><code>uvicorn main:app --reload</code></pre>
+
+            <h2 id="10">10. 문제 해결(트러블슈팅)</h2>
+            <h3>10.1 <code>/markers</code>는 뜨는데 아이템이 비어 있어요</h3>
+            <ul>
+                <li><code>item_sources</code> 데이터가 없을 수 있습니다.</li>
+                <li>팝업의 “이 위치에 정보 제보”로 데이터를 추가할 수 있습니다.</li>
+            </ul>
+
+            <h3>10.2 새로 만든 맵으로 이동이 안 돼요</h3>
+            <ul>
+                <li>zones 추가 시 <code>target map_id</code>가 실제로 <code>maps</code>에 존재해야 할 수 있습니다.</li>
+                <li>새 맵을 만드는 경우 이미지를 업로드하여 <code>/maps</code> 생성 플로우를 먼저 수행해야 합니다.</li>
+            </ul>
+
+            <h3>10.3 제보 업로드(이미지)가 실패해요</h3>
+            <ul>
+                <li>서버가 <code>static/images/...</code> 경로에 쓸 권한이 있는지 확인하세요.</li>
+                <li>업로드 파일이 너무 크거나 배포 환경 제한이 있을 수 있습니다.</li>
+            </ul>
+
+            <h2 id="changelog">변경 이력</h2>
+            <ul>
+                <li>2026-03-18: 초안 작성</li>
+                <li>2026-03-18: 아이템 이미지 수정(메뉴 분리) / 마커 신고 및 5회 누적 숨김 정책 반영</li>
+            </ul>
+
+            <div class="footer">
+                <a href="#toc">목차로</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

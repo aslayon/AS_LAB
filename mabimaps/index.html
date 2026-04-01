@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mabinogi Shop Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .report-menu .menu-separator {
+            border-top: 1px solid #e0e0e0;
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <!-- New Filter UI -->
+    <div id="filter-ui-container">
+        <div id="filter-panel">
+            <div id="filter-grid">
+                <button class="filter-btn active" data-category="all">
+                    <div class="filter-btn-icon">🌐</div>
+                    <span class="filter-btn-text">전체</span>
+                </button>
+                <button class="filter-btn" data-category="npc">
+                    <div class="filter-btn-icon">👤</div>
+                    <span class="filter-btn-text">NPC</span>
+                </button>
+                <button class="filter-btn" data-category="monster">
+                    <div class="filter-btn-icon">⚔️</div>
+                    <span class="filter-btn-text">몬스터</span>
+                </button>
+                <button class="filter-btn" data-category="event">
+                    <div class="filter-btn-icon">✨</div>
+                    <span class="filter-btn-text">이벤트</span>
+                </button>
+                <button class="filter-btn" data-category="object">
+                    <div class="filter-btn-icon">📦</div>
+                    <span class="filter-btn-text">오브젝트</span>
+                </button>
+            </div>
+        </div>
+        <button id="filter-toggle-btn">
+            <div class="filter-btn-icon">⚙️</div>
+            <span class="filter-btn-text">필터</span>
+        </button>
+    </div>
+
+    <div id="top-right-ui">
+        <div class="report-container">
+            <button id="reportBtn" class="ui-btn">데이터 제보</button>
+            <div id="reportMenu" class="report-menu">
+                <div onclick="setReportMode('new-marker')">신규 마커 추가</div>
+                <div onclick="setReportMode('new-zone')">맵 이동 영역 추가</div>
+                <div onclick="setReportMode('add-item-master')">아이템 등록</div>
+                <div class="menu-separator"></div>
+
+                <div onclick="window.setReportMode ? window.setReportMode('update-item-image') : setReportMode('update-item-image')">아이템 이미지 수정</div>
+                <div onclick="window.setReportMode ? window.setReportMode('update-item-name') : setReportMode('update-item-name')">아이템 이름 변경</div>
+                <div onclick="window.setReportMode ? window.setReportMode('update-map-image') : setReportMode('update-map-image')">현재 맵 이미지 교체</div>
+
+                <div onclick="toggleEditMode()">마커 위치 수정</div>
+                
+                <div onclick="setReportMode(null)">모드 취소</div>
+            </div>
+        </div>
+        <button id="backBtn" class="ui-btn">이전으로</button>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/static/js/api.js" defer></script>
+    <script src="/static/js/map_logic.js" defer></script>
+    <script src="/static/js/ui_handlers.js" defer></script>
+
+    <script>
+        // 모든 스크립트 로드 후 앱 시작
+        window.addEventListener('load', () => {
+            if (typeof initApp === 'function') initApp();
+        });
+    </script>
+
+    <script>
+        // inline handler 지원 (전역 함수 노출)
+        // (ui_handlers.js 로드 전에는 함수가 없으므로 load 이후로 지연)
+        window.addEventListener('load', () => {
+            window.setReportMode = window.setReportMode || setReportMode;
+            window.toggleEditMode = window.toggleEditMode || toggleEditMode;
+            window.showReportFormForMarker =
+                window.showReportFormForMarker || showReportFormForMarker;
+            window.dislikeItemSource = window.dislikeItemSource || dislikeItemSource;
+        });
+    </script>
+
+    <footer id="page-footer" style="position:fixed;left:0;bottom:0;z-index:900;pointer-events:none;">
+        <div style="display:flex;justify-content:flex-start;padding:10px;pointer-events:auto;">
+            <div style="background:rgba(22,22,26,0.85);color:#fff;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:8px 12px;font-size:12px;box-shadow:0 10px 24px rgba(0,0,0,0.25);">
+                <a href="/static/docs/USAGE_GUIDE.html" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">
+                    이용 가이드 열기
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
