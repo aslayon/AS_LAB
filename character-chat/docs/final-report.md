@@ -10,6 +10,13 @@
 
 ## ② 최종 구조
 
+![캐릭터 채팅 최종 처리 구조](diagrams/final-structure.png)
+
+[원본 PNG](diagrams/final-structure.png) · [편집용 SVG](diagrams/final-structure.svg) · [Mermaid 원본](diagrams/final-structure.mmd)
+
+<details>
+<summary>Mermaid 구조도 원본 보기</summary>
+
 ```mermaid
 flowchart TD
     U[사용자 입력] --> I[의도 해석 및 원문 근거 확인]
@@ -27,6 +34,8 @@ flowchart TD
     D -. 실패 판정도 실험 기록 .-> F
     A -. 보류 판정도 실험 기록 .-> F
 ```
+
+</details>
 
 일반 자유 입력은 의도→초안→검토의 기존 모델 호출 3회를 사용한다. 직접 행동은 의도 호출을 생략한다. 의도는 서버가 원문·대상을 확인한 뒤 기존 행동으로 연결하고, 서버 판정에 맞는 수치·표정·사건만 저장한다. 생성/검토 실패는 해당 턴을 저장하지 않는다. 열람 추첨의 예약은 예외적으로 먼저 보존해 재전송 재추첨을 막는다. [main.py](../app/main.py), [intent.py](../app/intent.py), [ollama_provider.py](../app/ollama_provider.py), [access.py](../app/access.py)가 근거다.
 

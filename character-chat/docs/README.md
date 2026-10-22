@@ -3,6 +3,7 @@
 - [실행·설정·복구 안내](../README.md)
 - [최종 보고서](final-report.md)
 - [대표 성공 기록 원문](examples/015-success.md)
+- [최종 구조 PNG](diagrams/final-structure.png) / [편집용 SVG](diagrams/final-structure.svg) / [Mermaid 원본](diagrams/final-structure.mmd)
 - [현재 구조](architecture.md) / [최종 구현 구조 스냅샷](architecture-history/015-access-ending.md)
 - [설정 편집](configuration-guide.md) / [관계 규칙](relationship-rules.md) / [결말·확률·복구](access-rules.md)
 - [모델 비교](reports/model-selection.md) / [EXAONE 채택](reports/011-exaone.md)
