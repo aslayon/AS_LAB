@@ -1,0 +1,25 @@
+{
+  "source": "사용자가 제공한 007 플레이 실패. 코드 실행 결과가 아닌 원문 발췌.",
+  "question": "방금 읽은 기록은 무슨 내용이었죠?",
+  "cases": [
+    {
+      "stage": "selected_only",
+      "selected_record": "rain-log",
+      "read_records": [],
+      "server_result": "공개 기록을 선택했습니다. 아직 열람하지 않았습니다.",
+      "actual_reply": "비가 거세군요. 저는 서린입니다. 공개 기록의 목록을 안내해 드릴까요?",
+      "expected": "선택했지만 아직 열람하지 않았다고 답한다."
+    },
+    {
+      "stage": "after_read",
+      "selected_record": "rain-log",
+      "read_records": [
+        "rain-log"
+      ],
+      "server_result": "선택한 공개 기록을 열람했습니다. 아래 본문은 보관소의 고정 기록입니다.",
+      "record_content": "보관소 처마의 빗물통은 해 질 무렵 절반까지 찼다. 야간 당직자는 배수로의 낙엽을 걷어 내고 수위를 다시 표시했다.",
+      "actual_reply": "비가 거세군요. 저는 서린입니다. 공개 기록의 목록을 안내해 드릴까요?",
+      "expected": "이미 열람한 빗물 관측 일지의 본문을 근거로 내용에 답한다."
+    }
+  ]
+}

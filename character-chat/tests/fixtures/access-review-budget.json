@@ -1,0 +1,10 @@
+{
+  "source": "015 initial live game 1, first public read: review budget failure",
+  "proposal": {
+    "dialogue": "방문 기록을 살펴보았습니다. 오후에 두 분이 다녀가셨군요. 오래된 문서에 대해 문의하셨지만, 직접 열람하거나 반출하지는 않으셨네요. 다른 기록을 찾아보시거나, 더 궁금한 점이 있으시다면 말씀해 주세요.",
+    "expression": "차분",
+    "trust_delta": 10,
+    "guard_delta": -5,
+    "outcome": "record_read"
+  }
+}

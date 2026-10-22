@@ -1,0 +1,86 @@
+{
+  "version": "relationship-2.0",
+  "initial": {
+    "trust": 30,
+    "guard": 20
+  },
+  "bounds": {
+    "minimum": 0,
+    "maximum": 100
+  },
+  "thresholds": {
+    "forced_access_end_attempts": 2,
+    "source_rechecks": 1
+  },
+  "rules": {
+    "conversation": {
+      "trust_delta": 0,
+      "guard_delta": 0,
+      "max_applications_per_branch": null
+    },
+    "catalog_listed": {
+      "trust_delta": 0,
+      "guard_delta": 0,
+      "max_applications_per_branch": null
+    },
+    "record_selected": {
+      "trust_delta": 0,
+      "guard_delta": 0,
+      "max_applications_per_branch": null
+    },
+    "record_read": {
+      "trust_delta": 10,
+      "guard_delta": -5,
+      "max_applications_per_branch": 3
+    },
+    "public_request_rejected": {
+      "trust_delta": 0,
+      "guard_delta": 0,
+      "max_applications_per_branch": null
+    },
+    "sealed_request": {
+      "trust_delta": 0,
+      "guard_delta": 0,
+      "max_applications_per_branch": null
+    },
+    "forced_access": {
+      "trust_delta": -15,
+      "guard_delta": 25,
+      "max_applications_per_branch": null
+    },
+    "leave": {
+      "trust_delta": 0,
+      "guard_delta": 0,
+      "max_applications_per_branch": null
+    },
+    "secret_first_mention": {
+      "trust_delta": 0,
+      "guard_delta": 10,
+      "max_applications_per_branch": 1
+    },
+    "source_refusal": {
+      "trust_delta": 0,
+      "guard_delta": 5,
+      "max_applications_per_branch": 1
+    },
+    "source_evasion": {
+      "trust_delta": 0,
+      "guard_delta": 5,
+      "max_applications_per_branch": 1
+    }
+  },
+  "access_policy": {
+    "minimum_trust": 50,
+    "maximum_guard": 30,
+    "minimum_public_reads": 2,
+    "require_no_forced_access": true,
+    "require_title_mentioned": true,
+    "require_source_closed": true,
+    "base_probability": 0.1,
+    "trust_coefficient": 0.01,
+    "guard_coefficient": 0.005,
+    "minimum_probability": 0.05,
+    "maximum_probability": 0.85,
+    "attempts_per_branch": 1
+  }
+}

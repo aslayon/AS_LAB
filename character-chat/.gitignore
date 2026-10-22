@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+.pytest_cache/
+data/*.sqlite3*
+.env
+.env.*
+!.env.example
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.pem
+*.key
+*.p12
+*.pfx
+.secrets/
+secrets/
+.aws/
+.ssh/
+credentials.json
+.runtime/
+
+# 자동 성공 기록과 추첨 실험 로그 (DB에서 재내보내기 가능)
+data/exports/

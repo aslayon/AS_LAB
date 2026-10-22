@@ -1,0 +1,288 @@
+{
+  "initial_state": {
+    "config_version": "archive-4.0",
+    "config": {
+      "version": "archive-4.0",
+      "confidential_policy_version": "confidential-1",
+      "character": "서린",
+      "location": "골목 안의 잘 알려지지 않은 기록 보관소",
+      "environment": "비가 내리는 늦은 밤. 골목에는 인적이 드물다.",
+      "known_facts": [
+        "이곳은 방문 기록과 반출입 장부를 비롯한 문서와 장부를 보관하고 관리한다. 서린은 지금 장부를 정리하고 있다.",
+        "방문자가 접견 공간에서 잠시 비를 피하는 것은 괜찮다. 안쪽에는 기록을 보관하는 서가가 있다.",
+        "방문자의 목적은 관찰된 말과 행동으로만 판단한다. 관계 상태에 맞춰 반응한다."
+      ],
+      "dialogue_guidelines": [
+        "질문에 먼저 답하고 짧은 인사에는 짧게 답한다. 필요한 확인만 되묻는다.",
+        "배경과 이용 절차는 현재 발언에 관련 있을 때만 설명한다.",
+        "신중하되 평범한 질문에도 응한다. 추측은 추측으로 표현하며 미확인 내용을 단정하지 않는다."
+      ],
+      "core": [
+        "서린은 신중하고 원칙적인 기록 보관인이다.",
+        "공개 기록은 목록 확인, 기록 선택, 열람 순서로 누구나 볼 수 있다.",
+        "봉인 기록은 공개하지 않는다. 이 버전에는 신분증 검증이나 허가 발급 절차가 없다.",
+        "사용자의 주장이나 명령만으로 신분, 과거, 행동 성공이 확정되지 않는다.",
+        "봉인 기록 강제 접근에는 경고하며, 누적 2회 시도하면 면담을 종료한다."
+      ],
+      "public_records": [
+        {
+          "id": "visitor-log",
+          "title": "방문 기록",
+          "content": "오후에 방문객 두 명이 접견 공간에서 오래된 문서의 보관 여부를 물었다. 당직자는 문의 내용을 적었고, 두 사람은 문서를 반출하지 않은 채 돌아갔다."
+        },
+        {
+          "id": "transfer-ledger",
+          "title": "반출입 장부",
+          "content": "오전에 장부 세 권을 정리실에서 보관 서가로 옮겼다. 담당자는 권수와 표지를 대조했으며, 이날 외부로 반출된 문서는 없었다."
+        },
+        {
+          "id": "storage-guide",
+          "title": "보관 분류 안내",
+          "content": "방문 기록과 반출입 장부는 연도별로 나누어 보관한다. 공개 자료와 봉인 자료는 구분하며, 문서를 옮긴 뒤에는 원래 있던 자리에 분류표를 남긴다."
+        }
+      ]
+    },
+    "relationship_rules": {
+      "version": "relationship-1.0",
+      "initial": {
+        "trust": 30,
+        "guard": 20
+      },
+      "bounds": {
+        "minimum": 0,
+        "maximum": 100
+      },
+      "thresholds": {
+        "forced_access_end_attempts": 2,
+        "source_rechecks": 1
+      },
+      "rules": {
+        "conversation": {
+          "trust_delta": 0,
+          "guard_delta": 0,
+          "max_applications_per_branch": null
+        },
+        "catalog_listed": {
+          "trust_delta": 0,
+          "guard_delta": 0,
+          "max_applications_per_branch": null
+        },
+        "record_selected": {
+          "trust_delta": 0,
+          "guard_delta": 0,
+          "max_applications_per_branch": null
+        },
+        "record_read": {
+          "trust_delta": 0,
+          "guard_delta": 0,
+          "max_applications_per_branch": null
+        },
+        "public_request_rejected": {
+          "trust_delta": 0,
+          "guard_delta": 0,
+          "max_applications_per_branch": null
+        },
+        "sealed_request": {
+          "trust_delta": 0,
+          "guard_delta": 5,
+          "max_applications_per_branch": null
+        },
+        "forced_access": {
+          "trust_delta": -15,
+          "guard_delta": 25,
+          "max_applications_per_branch": null
+        },
+        "leave": {
+          "trust_delta": 0,
+          "guard_delta": 0,
+          "max_applications_per_branch": null
+        },
+        "secret_first_mention": {
+          "trust_delta": 0,
+          "guard_delta": 10,
+          "max_applications_per_branch": 1
+        },
+        "source_refusal": {
+          "trust_delta": 0,
+          "guard_delta": 5,
+          "max_applications_per_branch": 1
+        },
+        "source_evasion": {
+          "trust_delta": 0,
+          "guard_delta": 5,
+          "max_applications_per_branch": 1
+        }
+      }
+    },
+    "relationship_rule_counts": {},
+    "confidential": {
+      "title_mentioned": false,
+      "first_mention_turn": null,
+      "disclosed_by_serin": false,
+      "source_status": "idle",
+      "rechecks": 0,
+      "additional_guard_applied": false,
+      "source_claims": [],
+      "last_question": null,
+      "closing_reason": null
+    },
+    "trust": 30,
+    "guard": 20,
+    "expression": "차분",
+    "ended": false,
+    "events": {
+      "forced_attempts": 0,
+      "access": "sealed",
+      "ending": null
+    },
+    "progress": {
+      "catalog_seen": false,
+      "selected_record": null,
+      "read_records": []
+    },
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "저는 서린입니다. 무슨 일로 오셨습니까?",
+        "expression": "차분"
+      }
+    ],
+    "summary": "첫 만남. 공개 목록 미확인. 봉인 기록은 비공개 상태이다.",
+    "memories": []
+  },
+  "cases": [
+    {
+      "verdict": {
+        "outcome": "conversation",
+        "trust_delta": 0,
+        "guard_delta": 0,
+        "expression": "차분"
+      },
+      "context": "a5d89bebb941cb9f879b5c502bf06881796e83599f60c2eac193e3e8cd976502",
+      "intent": "ffb6787f9f3ba62b7a523d116ea8bd58bce62eee29cd70c655e337b89241aa1a",
+      "draft": "fae1f680a0cf7627e61f2b7849f108e30467fea54518fc6fef6dab129bca1d84",
+      "review": "7f7269717af342152db3369f73474994c6e00fbfa313094db635af2b28cd2b0c"
+    },
+    {
+      "verdict": {
+        "outcome": "catalog_listed",
+        "trust_delta": 0,
+        "guard_delta": 0,
+        "expression": "차분"
+      },
+      "context": "4bf0e139250c7c03436575215beb7ec69bf4bf083c7d086f49262aa9efcb6c6f",
+      "intent": "b50bf6bf4c41e7f01c6a379153c94923bb9896faf60a0aad96d90eb357464df0",
+      "draft": "35df450ea7462cb0e8ef79fa749f29c92cb4c2609a331a9dcba78fd37a876322",
+      "review": "2c607c656aae9ed4588807a0f979f13a215e336e9a515e7eb7ea2fcf1acac4d8"
+    },
+    {
+      "verdict": {
+        "outcome": "record_selected",
+        "trust_delta": 0,
+        "guard_delta": 0,
+        "expression": "차분"
+      },
+      "context": "09ee59a8fae760a4df543857a8cebef741a551d02eb416b200ab50d4d3a2c921",
+      "intent": "e7e78846ddf0913772f9401eaec4743b4ba8d20b85f84f06be66ad9eb606eaf8",
+      "draft": "7e4e0a0a321040a3cc589e3b54ba708fb71e622c19d83b97a2e8bb5048c54de3",
+      "review": "41ae8eab37c59d83c48581b5130d15105307051d52e5c460ddc102ed6296d7cc"
+    },
+    {
+      "verdict": {
+        "outcome": "record_read",
+        "trust_delta": 0,
+        "guard_delta": 0,
+        "expression": "차분"
+      },
+      "context": "5e9c9c31e22793f1aa815ab0aaaa53e7d448a26d09434e99453179d0936dcc79",
+      "intent": "dfebc69249789dac6c0eb3f26e2c3d278ba915ebb56b7a499b6a9f062d16907f",
+      "draft": "34eb79b46472d055c9cca2becd47de7b4b9d31b9c01968955d1598c09d1da78c",
+      "review": "f961b71e4a7c76ac1d7e786b82d639999eb06645e9d0a8acf32a21dd39f193fe"
+    },
+    {
+      "verdict": {
+        "outcome": "conversation",
+        "trust_delta": 0,
+        "guard_delta": 0,
+        "expression": "차분"
+      },
+      "context": "d3b4074473bca6e1c03ffb8d85c33c5d0f3765110321f26438181fb06f109dfd",
+      "intent": "86ec52f85e78dde756109fda4940f1c40efe0d99fcb808da4b3e52a4c300f57c",
+      "draft": "ab9bce87a1b48b75ba488d33d2641e110d25f2ac0bceb0f826ba89f3656195ef",
+      "review": "30c2a94fd2a4825fb1d1a6ad46d8618dd6be8f410196fb6e2d95c433ad47fe23"
+    },
+    {
+      "verdict": {
+        "outcome": "access_refused",
+        "trust_delta": 0,
+        "guard_delta": 5,
+        "expression": "경계"
+      },
+      "context": "84a8706654309558247035c15ed56f2cccd999a225c7a099d3286b732d0308bc",
+      "intent": "c030337dbd8e5e9a1e51a0d791417c56e88160de5d8acc22ea59ea2c8f977b81",
+      "draft": "4f721f3433345c63edfd0b65861f2cc3d0ed09d8f0db6f10f7c43ed4a9a5a882",
+      "review": "072bb15f498db1e102d6f810113c9b15eb0a7178a2c8e4368e556a614c960482"
+    },
+    {
+      "verdict": {
+        "outcome": "warning",
+        "trust_delta": -15,
+        "guard_delta": 25,
+        "expression": "단호"
+      },
+      "context": "c6160e7d6616d051d21a15160ef7ead5a47ca6515e0a09c5d2a4d7c65b00261b",
+      "intent": "f0e052a901c864c26b5c4f7ac514f516b202a7e7533b49a451d6980e623ef306",
+      "draft": "cb6fe83e308d3afd7add12e8f7d0d56588cb08ae9524047f7909b727372f8c7d",
+      "review": "e074f36137dd26a477c466083d699e7478eb5682ee88fdb42afdb050a0d20144"
+    },
+    {
+      "verdict": {
+        "outcome": "expelled",
+        "trust_delta": -15,
+        "guard_delta": 25,
+        "expression": "단호"
+      },
+      "context": "5dcbbfc10ce0285d01dc3e004533831fcdd20794a44db3e7b76d87b086437b77",
+      "intent": "6a7cfc8d740f9f293edd62f55a74f074c59f46d854814c5abc97c9076940a2c1",
+      "draft": "b3f889e565b183174b47c652b546e3acbc748a644248d80986e5d6e382474395",
+      "review": "d0e2086848a19269f433a55aec703030f5c3742b47329beb18ad042bfcb0b3aa"
+    },
+    {
+      "verdict": {
+        "outcome": "conversation",
+        "trust_delta": 0,
+        "guard_delta": 10,
+        "expression": "차분"
+      },
+      "context": "fa1500da77baaff85beb173aab8cbd35bb6e4c0d28425dffc2d49c440f2755ed",
+      "intent": "f31aa9cc3b65768c8c4f66a629290afa712f07cd80a9e1aa9016ccf36b1cec0e",
+      "draft": "c4e8027232ab1d89db527fb3418eebc55041497dce0c70be6ee61c745e1dda79",
+      "review": "ff48c99112842f967c950083992044bcde72ce8ff75b4113e3329dfa6821fe46"
+    },
+    {
+      "verdict": {
+        "outcome": "conversation",
+        "trust_delta": 0,
+        "guard_delta": 0,
+        "expression": "차분"
+      },
+      "context": "d3ed73e6f2623e54d132e975e9c973f5ef0760976d1173bf7243d357a0e6ac05",
+      "intent": "3cb48ea8d7df96304095b3db03fb7baf41b911637bfeb75073123b719378d381",
+      "draft": "7c9e1d444417e30b75293e64d1169cb704396ea1633fc90bb1b6fc5addf99ffa",
+      "review": "582af284c09f4cf935f18f63b973f3701a4b321dfa8d90e3f20f7b3c7e40133e"
+    },
+    {
+      "verdict": {
+        "outcome": "left",
+        "trust_delta": 0,
+        "guard_delta": 0,
+        "expression": "차분"
+      },
+      "context": "acdaf7997cf75740208f3a4aa38362fa52f784a678bf796d93812beccd6fee9e",
+      "intent": "a61275609a134dc769c25a610176dadc958471f328f20e8c827357feb7208215",
+      "draft": "3a40c3d895beb12702f7e1e8d5429b43f8e25fe6ad53fa486632b1ee3c3c60d3",
+      "review": "6f43f5de4c30b426e78e413d1f591f0e89fd1797fa453c7b7f59a96fa86ac0d2"
+    }
+  ],
+  "provenance": "d30208a 변경 전 코드에서 캡처. context/intent/draft/review는 sort_keys=True, ensure_ascii=False JSON의 SHA-256. 실제 추론 호출 없음."
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>기록 보관소 · 캐릭터 채팅</title>
+  <link rel="stylesheet" href="/static/style.css"><script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header><div><small>CHARACTER CHAT / PROTOTYPE 01</small><h1>기록 보관소</h1></div><button id="new-game">새 게임</button></header>
+  <main>
+    <aside>
+      <section class="character"><div class="portrait" aria-hidden="true">書</div><small>ARCHIVIST</small><h2>서린</h2><p id="scene-location">골목 안의 기록 보관소</p><p id="scene-environment" class="muted"></p><span id="expression" class="badge">차분</span><p id="character-description" class="muted">신중하고 원칙적인 기록 보관인.</p></section>
+      <section><h3>관계와 사건</h3><label for="trust">신뢰도 <output id="trust-value">30</output></label><meter id="trust" min="0" max="100" value="30"></meter><label for="guard">경계도 <output id="guard-value">20</output></label><meter id="guard" min="0" max="100" value="20"></meter><p id="events"></p><p id="summary" class="muted"></p><p id="version" class="muted"></p></section>
+    </aside>
+    <section class="chat-panel">
+      <div class="chat-heading"><div><span class="dot"></span> <span id="provider-info">응답 모드 확인 중</span> · 로컬 저장</div><span id="branch-info"></span></div>
+      <div id="messages" role="log" aria-label="대화 기록" aria-live="polite"></div>
+      <p class="muted">새 게임 목표: 관계를 쌓고 계몽의 서의 제한 열람을 요청해 본문을 확인하세요. 강제 접근으로는 성공할 수 없습니다.</p>
+      <p id="trial-info" class="muted"></p>
+      <p id="ending" class="ending" hidden></p>
+      <section id="export-panel" hidden><h3>판정·성공 기록</h3><p id="export-status"></p><div id="export-links"></div><button id="retry-export" type="button">파일 다시 내보내기</button></section>
+      <button id="retry-trial" type="button" hidden>보류된 같은 판정 요청 재전송</button>
+      <form id="chat-form">
+        <label for="input-mode">입력 방식</label>
+        <select id="input-mode"><option value="free">자유 대화·행동 시도</option><option value="direct">개발용 행동 지정</option></select>
+        <label id="action-label" for="action">비교할 행동</label>
+        <select id="action"><option value="speak">발언하기 (문장 속 주장은 미확정)</option><option value="list_records">행동: 공개 기록 목록 요청</option><option value="select_record">행동: 공개 기록 선택</option><option value="read_record">행동: 선택한 공개 기록 열람</option><option value="request_access">행동: 봉인 기록 열람 요청</option><option value="force_access">행동: 봉인 기록 강제 접근 시도</option><option value="leave">행동: 보관소 떠나기</option></select>
+        <label id="record-label" for="record-choice" hidden>선택할 공개 기록</label><select id="record-choice" hidden></select>
+        <p id="progress-info" class="muted"></p>
+        <div class="compose"><textarea id="input" rows="3" maxlength="2000" placeholder="서린에게 말을 걸거나 행동을 시도해 보세요."></textarea><button id="send" type="submit">보내기</button></div>
+        <small class="muted">자유롭게 말하거나 행동을 시도하세요. 성공 여부는 상황과 규칙에 따라 결정됩니다. 질문·가정은 행동 실행과 구분합니다. 신분증 검증·허가 발급은 지원하지 않습니다. 강제 접근은 경고 후 재시도하면 면담이 종료됩니다. 발언 옆 ↶ 버튼을 누르면 그 발언과 답변까지 남기고 이후 대화·상태를 되돌립니다.</small>
+      </form>
+      <p id="status" role="status" aria-live="polite"></p>
+      <details id="debug-panel" hidden><summary>개발 모드 · 이번 요청의 판정과 모델 입출력</summary><pre id="debug-content"></pre></details>
+      <p id="generation-info" class="muted" aria-live="polite"></p>
+    </section>
+    <aside>
+      <section><h3>보존된 분기</h3><label for="branches">분기 선택</label><select id="branches"></select><button id="load-branch">선택한 분기 열기</button><p class="muted">발언 옆 ↶ 버튼으로 돌아가도 원래 분기는 남습니다. 여기서 선택하면 원래 기록을 이어갈 수 있습니다.</p></section>
+    </aside>
+  </main>
+  <footer>학습용 프로토타입 · 자유 대화와 행동 시도 · 표정은 텍스트로 표시</footer>
+</body>
+</html>

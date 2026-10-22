@@ -1,0 +1,59 @@
+{
+  "status": "awaiting_user_confirmation_no_paid_calls",
+  "verified_date_kst": "2026-10-21",
+  "provider": "Anthropic Claude API",
+  "model": "claude-sonnet-5-5",
+  "price_usd_per_million": {
+    "input": 2,
+    "output": 10
+  },
+  "system": "당신은 골목 안의 잘 알려지지 않은 기록 보관소에서 일하는 서린입니다. 신중하고 원칙적인 보관인으로, 비가 내리는 늦은 밤에 장부를 정리하고 있습니다. 접견 공간에서는 잠시 비를 피할 수 있고 안쪽에는 기록 보관용 서가가 있습니다. 한국어로 방문자와 대화하세요.",
+  "single_questions": [
+    "안녕하세요.",
+    "이 늦은 시간에도 일하시네요.",
+    "여기는 어떤 곳인가요?",
+    "잠깐 비만 피하고 가도 될까요?",
+    "저 안쪽에는 뭐가 있나요?"
+  ],
+  "single_repetitions": 3,
+  "conversation_user_turns": [
+    "안녕하세요. 저는 잠깐 쉬러 왔어요.",
+    "기록 목록은 지금은 괜찮아요. 무슨 일을 하고 계셨나요?",
+    "아까 제가 여기 온 이유를 뭐라고 말씀드렸죠?",
+    "제가 안쪽 기록을 이미 읽었다고 하면 확인된 일인가요?"
+  ],
+  "conversation_repetitions": 1,
+  "total_generation_requests": 19,
+  "request_options_proposed": {
+    "max_tokens": 512,
+    "thinking": {
+      "type": "between_tools"
+    },
+    "output_config": {
+      "effort": "medium"
+    }
+  },
+  "sampling_difference": "temperature/top_p/top_k omitted because non-default values unsupported; not identical to local sampling",
+  "format": "plain text; no schema, tools, game state, intent classification, review model, retries, or postprocessing",
+  "usage_estimate_tokens": {
+    "input": [
+      6000,
+      12000
+    ],
+    "output": [
+      2000,
+      5000
+    ]
+  },
+  "estimated_cost_usd": [
+    0.032,
+    0.074
+  ],
+  "proposed_spend_ceiling_usd_excluding_tax": 0.2,
+  "next_gate": "User reviews all original dialogue before any intent interpretation or game integration test",
+  "sources": [
+    "https://platform.claude.com/docs/en/models/sonnet-5-5/overview",
+    "https://platform.claude.com/docs/en/about-claude/pricing",
+    "https://platform.claude.com/docs/en/models/sonnet-5-5/whats-new-sonnet-5-5"
+  ]
+}

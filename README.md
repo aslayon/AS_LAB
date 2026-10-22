@@ -10,6 +10,7 @@
 - 원본 프로젝트는 건드리지 않고, `refactored/projects/` 내부만 정리합니다.
 
 ## 프로젝트 목록
+- [character-chat/](character-chat/) : 로컬 LLM 캐릭터 채팅·서버 상태 판정·회귀·확률 결말 프로토타입 ([최종 보고서](character-chat/docs/final-report.md))
 - `classification/` : 분류 실험과 데모 코드
 - `detection_cv/` : 컴퓨터 비전 기반 탐지 실험
 - `capstone/` : 캡스톤 관련 산출물
